@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head><script type='text/javascript' nonce='WjdPqon01yZZvjT/i0BKag==' src='https://contribution.usercontent.google.com/ulaLSynViB5iBP44oOKBnyj0n4TvBLOVF23iCw_aEFAgMzQ7v4JdNiAnqNvBxDgj8zWnJZKtUXpS6rPSPfisefpv9Q7K4pvNlBCkPmChYHNjKgu-W0ycpFCIdaPfSOvYgYkyhs3Ix20eLY8ssqH3m4XaNkQ60VELyjhuGtcGdelbb6vOMhy9bW0Eb1p6oqKnJksVTEvU_bW1xx0f4vWXsbKyAifZd983_ug26x_vIK8kXCO2zCZ6MK8fOo2m1WRQz7pPGrUFYpBTK8r23Y5U3KqQIdpOT2gQH9Ok79qP3L6PiH3fcEj5Bm6Bnj6Na6NksVwqMjqi3RD5cexrXVkXvxtiL9e9q4Z-Y0KXU-PIDIjVO16VkTo9bK_gI2Usx_b9njh20t3QQfm51alrwVAYZDMhWyYxTZtGOofRPMbP-MuJYW96FI2g-F6v5ruVkRXEWqzFOhw1SNxQyzqwvrkscZVQzhjkoPeCFzAxFf4qMIpV0DcP7zwI3lIwh0Wc_TSO4E9sOivyeXjGvtmTpPtc1motzS4oFvnFmiDi8VOjIx4MvEa-1zM8fozASum5NLdmzWXDEOJuE7b5LqrXyLIt7XNFXuLUhxcwEEarxr3LJVjaoxrDgiGnluv6B6PIcB6QtcKX81nxo1rGazeayg52sMqB1NDNOX02zwckQxbhQ1oAin6TtAOl4Uk6rzyGnOT__60OrlxRIummKm5jRg'></script>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Witam na stronie Sha0lin_</title>
@@ -201,6 +201,7 @@
             font-size: 18px;
         }
 
+        /* Stylizacja klikalnego przycisku z nickiem */
         .discord-tag {
             font-family: monospace;
             background: #1e293b;
@@ -210,6 +211,14 @@
             font-weight: bold;
             font-size: 0.95rem;
             border: 1px solid #334155;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .discord-tag:hover {
+            background: #334155;
+            border-color: #38bdf8;
         }
 
         .footer {
@@ -245,10 +254,10 @@
             </div>
 
             <div class="interest-card">
-                <div class="icon">:)</div>
+                <div class="icon">⚓</div>
                 <div class="content">
                     <h3>War Thunder</h3>
-                    <p>Lubie grać statki</p>
+                    <p>Lubię grać w statki</p>
                 </div>
             </div>
 
@@ -256,7 +265,7 @@
                 <div class="icon">♟️</div>
                 <div class="content">
                     <h3>Seriale</h3>
-                    <p>Rodzinne oglądanie hentaii (wyzwanie dla prawdziwych twardzieli)</p>
+                    <p>Rodzinne oglądanie (wyzwanie dla prawdziwych twardzieli)</p>
                 </div>
             </div>
         </div>
@@ -277,13 +286,34 @@
                 <div class="discord-icon">💬</div>
                 <span style="color: #cbd5e1; font-weight: 600;">Discord</span>
             </div>
-            <div class="discord-tag">sha0lin_</div>
+            <div class="discord-tag" id="discordBtn" onclick="copyDiscordNick()">
+                sha0lin_ 📋
+            </div>
         </div>
 
         <div class="footer">
             © Strona Sha0lin_
         </div>
     </div>
+
+    <!-- Skrypt odpowiedzialny za kopiowanie do schowka -->
+    <script>
+        function copyDiscordNick() {
+            const nick = "sha0lin_";
+            navigator.clipboard.writeText(nick).then(() => {
+                const btn = document.getElementById("discordBtn");
+                btn.innerHTML = "Skopiowano! ✅";
+                btn.style.color = "#4ade80";
+                btn.style.borderColor = "#4ade80";
+
+                setTimeout(() => {
+                    btn.innerHTML = nick + " 📋";
+                    btn.style.color = "#38bdf8";
+                    btn.style.borderColor = "#334155";
+                }, 2000);
+            });
+        }
+    </script>
 
 </body>
 </html>
